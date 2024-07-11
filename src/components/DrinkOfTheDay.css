@@ -1,0 +1,24 @@
+.drink-container {
+    text-align: center;
+    margin: 50px auto;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.drink-image {
+    width: 150px;
+    height: 150px;
+    margin-top: 10px;
+}
+
+.instructions,
+.ingredients {
+    margin-top: 20px;
+}
+
+.instructions h3,
+.ingredients h3 {
+    margin-bottom: 10px;
+}

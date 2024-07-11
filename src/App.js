@@ -1,24 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import DrinkOfTheDay from "./components/DrinkOfTheDay.js";
+import DrinkList from "./components/DrinkList.js";
+import { DrinkContext } from "./store/drinkstore.js";
+import SearchFailed from "./components/SearchFailed.js";
+import { useContext } from "react";
 
 function App() {
+  const { searchResults, selectedDrink, searchFailed } =
+    useContext(DrinkContext);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      {searchFailed && <SearchFailed />}
+      {(searchResults.length === 0 || selectedDrink) && !searchFailed && (
+        <div>
+          <DrinkOfTheDay />
+        </div>
+      )}
+      {searchResults.length > 0 && !selectedDrink && !searchFailed && (
+        <DrinkList />
+      )}
+    </>
   );
 }
 
