@@ -77,11 +77,19 @@ const DrinkOfTheDay = () => {
             ))}
           </div>
           <br />
-          <button onClick={backToList}>Back to your search list </button>
-          <br />
-          <button onClick={backToDrinkOfDay}>
-            Go back to drink of the day
-          </button>
+          <div>
+            <span>
+              {" "}
+              <button className="btn-style" onClick={backToList}>
+                Back to your search list{" "}
+              </button>
+            </span>
+            <span>
+              <button className="btn-style" onClick={backToDrinkOfDay}>
+                Back to drink of the day
+              </button>
+            </span>
+          </div>
         </div>
       </div>
     );

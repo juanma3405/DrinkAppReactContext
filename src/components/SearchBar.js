@@ -2,13 +2,13 @@ import { useState, useContext } from "react";
 import { DrinkContext } from "../store/drinkstore";
 import ApiDrinkService from "../services/ApiDrinkService.service";
 import searchImage from "../assets/search.svg";
+import "./SearchBar.css";
 
 const SearchBar = () => {
   const [query, setQuery] = useState("");
   const { setSearchResults, setSearchFailed } = useContext(DrinkContext);
 
   const handleSearch = async (e) => {
-    debugger;
     e.preventDefault();
     try {
       const response = await ApiDrinkService.getCocktail(query);
@@ -29,7 +29,7 @@ const SearchBar = () => {
   };
 
   return (
-    <form onSubmit={handleSearch} className="center">
+    <form onSubmit={handleSearch} className="form-center">
       <input
         type="text"
         value={query}

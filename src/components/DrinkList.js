@@ -8,7 +8,6 @@ const DrinkList = () => {
     useContext(DrinkContext);
 
   const choseDrink = async (drink) => {
-    debugger;
     let newDrink;
     let idDrink;
     try {
@@ -54,12 +53,13 @@ const DrinkList = () => {
               src={drink.urlImage}
               onClick={() => choseDrink(drink)}
               alt="Drink"
+              style={{ cursor: "pointer" }}
             />
             <p>{drink.name}</p>
           </li>
         ))}
       </div>
-      <button className="center" onClick={backToInit}>
+      <button className="btn-style" onClick={backToInit}>
         Back to drink of the day
       </button>
     </>

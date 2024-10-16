@@ -8,11 +8,9 @@ import DrinkContextProvider from "./store/drinkstore.js";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <React.StrictMode>
-    <DrinkContextProvider>
-      <App />
-    </DrinkContextProvider>
-  </React.StrictMode>
+  <DrinkContextProvider>
+    <App />
+  </DrinkContextProvider>
 );
 
 // If you want to start measuring performance in your app, pass a function

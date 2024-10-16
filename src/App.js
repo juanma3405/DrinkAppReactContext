@@ -10,7 +10,11 @@ function App() {
 
   return (
     <>
-      {searchFailed && <SearchFailed />}
+      {searchFailed && (
+        <div>
+          <SearchFailed />
+        </div>
+      )}
       {(searchResults.length === 0 || selectedDrink) && !searchFailed && (
         <div>
           <DrinkOfTheDay />

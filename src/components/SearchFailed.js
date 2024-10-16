@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { DrinkContext } from "../store/drinkstore.js";
+import "./SearchFailed.css";
 
 const SearchFailed = () => {
   const { setSearchFailed } = useContext(DrinkContext);
@@ -9,9 +10,13 @@ const SearchFailed = () => {
   };
 
   return (
-    <div className="container">
-      <h2>Sorry that drink is not on our list</h2>
-      <button onClick={backToDrinkOfDay}>Back to drink of the day </button>
+    <div>
+      <div className="no-results-container">
+        <h2>Sorry, that drink is not on our list</h2>
+      </div>
+      <button className="btn-style" onClick={backToDrinkOfDay}>
+        Back to drink of the day
+      </button>
     </div>
   );
 };
