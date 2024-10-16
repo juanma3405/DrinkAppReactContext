@@ -6,7 +6,8 @@ import "./SearchBar.css";
 
 const SearchBar = () => {
   const [query, setQuery] = useState("");
-  const { setSearchResults, setSearchFailed } = useContext(DrinkContext);
+  const { setSearchResults, setSearchFailed, setError } =
+    useContext(DrinkContext);
 
   const handleSearch = async (e) => {
     e.preventDefault();
@@ -16,7 +17,6 @@ const SearchBar = () => {
       if (searchDrinks.length === 0) {
         setSearchFailed(true);
       }
-      console.log(searchDrinks);
       const searchResults = searchDrinks.map((drink) => ({
         idDrink: drink.idDrink,
         name: drink.strDrink,
@@ -24,6 +24,7 @@ const SearchBar = () => {
       }));
       setSearchResults(searchResults);
     } catch (error) {
+      setError(true);
       console.error("Error searching for cocktails:", error);
     }
   };

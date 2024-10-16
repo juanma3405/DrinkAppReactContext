@@ -4,7 +4,7 @@ import ApiDrinkService from "../services/ApiDrinkService.service";
 import "./DrinkList.css";
 
 const DrinkList = () => {
-  const { searchResults, setSelectedDrink, setSearchResults } =
+  const { searchResults, setSelectedDrink, setSearchResults, setError } =
     useContext(DrinkContext);
 
   const choseDrink = async (drink) => {
@@ -36,6 +36,7 @@ const DrinkList = () => {
       }
       setSelectedDrink(newDrink);
     } catch (error) {
+      setError(true);
       console.error("Error fetching drink data: ", error);
     }
   };

@@ -8,6 +8,7 @@ export default function DrinkContextProvider({ children }) {
   const [searchResults, setSearchResults] = useState([]);
   const [selectedDrink, setSelectedDrink] = useState(null);
   const [searchFailed, setSearchFailed] = useState(null);
+  const [error, setError] = useState(false);
 
   useEffect(() => {
     const fetchRandomDrink = async () => {
@@ -34,6 +35,7 @@ export default function DrinkContextProvider({ children }) {
         }
         setDrinkOfTheDay(newDrink);
       } catch (error) {
+        setError(true);
         console.error("Error fetching the random drink:", error);
       }
     };
@@ -50,6 +52,8 @@ export default function DrinkContextProvider({ children }) {
         setSelectedDrink,
         searchFailed,
         setSearchFailed,
+        error,
+        setError,
       }}
     >
       {children}
